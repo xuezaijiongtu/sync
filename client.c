@@ -152,7 +152,7 @@ int sync(char *url, char *check_md5)
 
 int main()
 {
-    char url[1024] = "http://121.14.161.217:8027/m.sql";
+    char url[1024] = "http://xxxxxxxxxx:8027/m.sql";
     char md5_check[33] = "29286b0259435f58d9fdcf455fbf417e";
     int status = sync(url, md5_check);
     
