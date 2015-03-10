@@ -22,11 +22,12 @@ int file_md5_check(char *path, char *md5_str)
     char *file_md5 = MD5_file(path);
     printf("下载文件MD5值:%s \n比对MD5值:%s\n", file_md5, md5_str);
     if(strcmp(md5_str, file_md5) == 0){
+        free(file_md5);
         return 0;
     }else{
+        free(file_md5);
         return -1;
     }
-    free(file_md5);
 }
 
 /**
@@ -58,6 +59,7 @@ char *MD5_file (char *path)
     if(file_md5 == NULL)
     {
         fprintf(stderr, "malloc failed.\n");
+        fclose(fp);
         return NULL;
     }
     memset(file_md5, 0, 33);
